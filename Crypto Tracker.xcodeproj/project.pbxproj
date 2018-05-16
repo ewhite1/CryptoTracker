@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2BB6DDBB20ABCDAF00A30AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6DDBA20ABCDAF00A30AD2 /* AppDelegate.swift */; };
-		2BB6DDBD20ABCDAF00A30AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6DDBC20ABCDAF00A30AD2 /* ViewController.swift */; };
-		2BB6DDC020ABCDAF00A30AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6DDBE20ABCDAF00A30AD2 /* Main.storyboard */; };
 		2BB6DDC220ABCDB200A30AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6DDC120ABCDB200A30AD2 /* Assets.xcassets */; };
 		2BB6DDC520ABCDB200A30AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6DDC320ABCDB200A30AD2 /* LaunchScreen.storyboard */; };
+		2BB6DDCD20ABCF8800A30AD2 /* CryptoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6DDCC20ABCF8800A30AD2 /* CryptoTableViewController.swift */; };
+		2BB6DDCF20ABD38E00A30AD2 /* coinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6DDCE20ABD38E00A30AD2 /* coinData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2BB6DDB720ABCDAF00A30AD2 /* Crypto Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB6DDBA20ABCDAF00A30AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BB6DDBC20ABCDAF00A30AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2BB6DDBF20ABCDAF00A30AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BB6DDC120ABCDB200A30AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB6DDC420ABCDB200A30AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BB6DDC620ABCDB200A30AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BB6DDCC20ABCF8800A30AD2 /* CryptoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewController.swift; sourceTree = "<group>"; };
+		2BB6DDCE20ABD38E00A30AD2 /* coinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coinData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				2BB6DDBA20ABCDAF00A30AD2 /* AppDelegate.swift */,
-				2BB6DDBC20ABCDAF00A30AD2 /* ViewController.swift */,
-				2BB6DDBE20ABCDAF00A30AD2 /* Main.storyboard */,
+				2BB6DDCE20ABD38E00A30AD2 /* coinData.swift */,
 				2BB6DDC120ABCDB200A30AD2 /* Assets.xcassets */,
 				2BB6DDC320ABCDB200A30AD2 /* LaunchScreen.storyboard */,
 				2BB6DDC620ABCDB200A30AD2 /* Info.plist */,
+				2BB6DDCC20ABCF8800A30AD2 /* CryptoTableViewController.swift */,
 			);
 			path = "Crypto Tracker";
 			sourceTree = "<group>";
@@ -124,7 +124,6 @@
 			files = (
 				2BB6DDC520ABCDB200A30AD2 /* LaunchScreen.storyboard in Resources */,
 				2BB6DDC220ABCDB200A30AD2 /* Assets.xcassets in Resources */,
-				2BB6DDC020ABCDAF00A30AD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +134,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BB6DDBD20ABCDAF00A30AD2 /* ViewController.swift in Sources */,
+				2BB6DDCD20ABCF8800A30AD2 /* CryptoTableViewController.swift in Sources */,
 				2BB6DDBB20ABCDAF00A30AD2 /* AppDelegate.swift in Sources */,
+				2BB6DDCF20ABD38E00A30AD2 /* coinData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2BB6DDBE20ABCDAF00A30AD2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BB6DDBF20ABCDAF00A30AD2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2BB6DDC320ABCDB200A30AD2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
