@@ -21,6 +21,15 @@ class CoinData {
             coins.append(coin)
         }
     }
+    func netWorthAsString() -> String {
+        var netWorth = 0.0
+        for coin in coins {
+            netWorth += coin.amount * coin.price
+        }
+        return doubleToMoneyString(double: netWorth)
+    }
+    
+    
     func getPrices() {
         var listOfSymbols = ""
         for coin in coins {

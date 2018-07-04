@@ -7,9 +7,13 @@
 //
 
 import UIKit
+private let headerHeight : CGFloat = 100.00
+private let netWorthHeight : CGFloat = 45.0
 
 class CryptoTableViewController: UITableViewController, CoinDataDelegate {
 
+    var amountLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,19 +22,41 @@ class CryptoTableViewController: UITableViewController, CoinDataDelegate {
     override func viewWillAppear(_ animated: Bool){
         CoinData.shared.delegate = self
         tableView.reloadData()
+        displayNetWorth()
     }
+    
     func newPrices() {
+        displayNetWorth()
         tableView.reloadData()
+        
+    }
+    func createHeaderView() -> UIView {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: headerHeight))
+        headerView.backgroundColor = UIColor.white
+        let netWorthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: netWorthHeight))
+        netWorthLabel.text = "My Crypto Net Worth"
+        netWorthLabel.textAlignment = .center
+        headerView.addSubview(netWorthLabel)
+        
+        amountLabel.frame = CGRect(x: 0, y: netWorthHeight, width: view.frame.size.width, height: headerHeight - netWorthHeight)
+        amountLabel.textAlignment = .center
+        amountLabel.font = UIFont.boldSystemFont(ofSize: 60.0)
+        headerView.addSubview(amountLabel)
+        displayNetWorth()
+        
+        return headerView
+    }
+    func displayNetWorth(){
+        amountLabel.text = CoinData.shared.netWorthAsString()
     }
 
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return createHeaderView()
+    }
     
-    
-    // MARK: - Table view data source
-
-   // override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-     //   return 0
-   // }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -39,7 +65,12 @@ class CryptoTableViewController: UITableViewController, CoinDataDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let coin = CoinData.shared.coins[indexPath.row]
+        if coin.amount != 0.0 {
+            cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
+        } else {
         cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
+        }
+        
         cell.imageView?.image = coin.image
         return cell
     }
