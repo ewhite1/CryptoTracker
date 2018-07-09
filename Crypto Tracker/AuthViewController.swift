@@ -17,7 +17,7 @@ class AuthViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func presentAuth() {
-        LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Your crypto is protected by biometrics") {(success, error) in
+        LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Your crypto information is protected by bio metrics") {(success, error) in
             if success {
                 DispatchQueue.main.async {
 
