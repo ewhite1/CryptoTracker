@@ -58,6 +58,7 @@ class CoinData {
                 if let coinJSON = json[coin.symbol] as? [String:Double] {
                     if let price = coinJSON["USD"] {
                         coin.price = price
+                        UserDefaults.standard.set(price, forKey: coin.symbol)
                     }
                 }
             }
@@ -96,6 +97,11 @@ class Coin{
         if let image = UIImage(named: symbol){
             self.image = image
         }
+        self.price = UserDefaults.standard.double(forKey: symbol)
+        self.amount = UserDefaults.standard.double(forKey: symbol + "amount")
+        if let history = UserDefaults.standard.array(forKey: symbol + "history") as? [Double] {
+            self.historicalData = history
+        }
     }
     func getHistoricalData() {
         Alamofire.request("https://min-api.cryptocompare.com/data/histoday?fsym=\(symbol)&tsym=USD&limit=30").responseJSON {
@@ -110,6 +116,7 @@ class Coin{
                         }
                     }
                     CoinData.shared.delegate?.newHistory?()
+                    UserDefaults.standard.set(self.historicalData, forKey: self.symbol + "history")
                 }
             }
         }
